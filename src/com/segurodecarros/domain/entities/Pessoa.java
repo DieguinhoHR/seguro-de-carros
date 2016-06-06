@@ -3,6 +3,7 @@ package com.segurodecarros.domain.entities;
 public abstract class Pessoa {
 	private Telefone telefone;
 	private int numeroContrato;
+	private Email email;
 	
 	public Telefone getTelefone() {
 		return telefone;
@@ -18,5 +19,13 @@ public abstract class Pessoa {
 	
 	public void setNumeroContrato(int numeroContrato) {
 		this.numeroContrato = numeroContrato;
-	}	
+	}
+
+	public Email getEmail() {
+		return email;
+	}
+
+	public void setEmail(Email email) {
+		this.email = email;
+	}		
 }

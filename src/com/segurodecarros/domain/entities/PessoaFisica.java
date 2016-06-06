@@ -7,7 +7,8 @@ public class PessoaFisica extends Pessoa {
 	private int cpf;
 	private Date dataDeNascimento;	
 	private String estadoCivil;
-	
+	private int idade;
+
 	public String getNome() {
 		return nome;
 	}
@@ -38,6 +39,14 @@ public class PessoaFisica extends Pessoa {
 	
 	public void setEstadoCivil(String estadoCivil) {
 		this.estadoCivil = estadoCivil;
-	}	
+	}
+	
+	public int getIdade() {
+		return idade;
+	}
+
+	public void setIdade(int idade) {
+		this.idade = idade;
+	}
 	
 }
