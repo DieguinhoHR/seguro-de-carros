@@ -27,5 +27,5 @@ public class PessoaFisicaServiceTest {
 	public void testIdadeInvalidaEntreDezoitoESessenta() {
 		pessoaFisica.setIdade(61);		
 		assertFalse(pessoaFisicaService.inserir(pessoaFisica));		
-	}
+	}	
 }
