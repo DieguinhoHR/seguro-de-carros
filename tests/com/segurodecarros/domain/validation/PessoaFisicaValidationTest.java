@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import com.segurodecarros.domain.entities.PessoaFisica;
 import com.segurodecarros.domain.entities.PessoaFisicaException;
+import com.segurodecarros.domain.entities.Sexo;
 
 public class PessoaFisicaValidationTest {
 	private PessoaFisica pessoaFisica;
@@ -17,6 +18,18 @@ public class PessoaFisicaValidationTest {
 		pessoaFisica = new PessoaFisica();		
 		pessoaFisicaValidation = new PessoaFisicaValidation();
 	}
+	
+	@Test
+	public void testIdadeValidaEntreDezoitoESessenta() {
+		pessoaFisica.setIdade(29);		
+		assertEquals(29, pessoaFisica.getIdade());		
+	}
+	
+	@Test
+	public void testIdadeInvalidaEntreDezoitoESessenta() {
+		pessoaFisica.setIdade(61);		
+		assertEquals(61, pessoaFisica.getIdade());			
+	}	
 	
 	@Test(expected=PessoaFisicaException.class)	
 	public void testNomeNaoPodeTerMaisDeQuinzeCaracteres()  throws PessoaFisicaException {	
@@ -38,3 +51,4 @@ public class PessoaFisicaValidationTest {
 				pessoaFisicaValidation.validarCaracteresEspeciais(pessoaFisica));			
 	}
 }
+

@@ -8,6 +8,8 @@ public class PessoaFisica extends Pessoa {
 	private Date dataDeNascimento;	
 	private String estadoCivil;
 	private int idade;
+	private Sexo sexo;	
+	private String cnh;
 
 	public String getNome() {
 		return nome;
@@ -48,5 +50,20 @@ public class PessoaFisica extends Pessoa {
 	public void setIdade(int idade) {
 		this.idade = idade;
 	}
-	
+
+	public Sexo getSexo() {
+		return sexo;
+	}
+
+	public void setSexo(Sexo sexo) {
+		this.sexo = sexo;
+	}
+
+	public String getCnh() {
+		return cnh;
+	}
+
+	public void setCnh(String cnh) {
+		this.cnh = cnh;
+	}		
 }

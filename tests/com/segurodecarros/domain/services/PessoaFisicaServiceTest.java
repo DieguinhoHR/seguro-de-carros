@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.segurodecarros.domain.entities.PessoaFisica;
+import com.segurodecarros.domain.entities.Sexo;
 
 public class PessoaFisicaServiceTest {
 	private PessoaFisica pessoaFisica;
@@ -15,17 +16,22 @@ public class PessoaFisicaServiceTest {
 	public void setUp() throws Exception {
 		pessoaFisica = new PessoaFisica();
 		pessoaFisicaService = new PessoaFisicaService();
-	}
-
-	@Test
-	public void testIdadeValidaEntreDezoitoESessenta() {
-		pessoaFisica.setIdade(29);		
-		assertTrue(pessoaFisicaService.inserir(pessoaFisica));		
-	}
+	}	
 	
 	@Test
-	public void testIdadeInvalidaEntreDezoitoESessenta() {
-		pessoaFisica.setIdade(61);		
-		assertFalse(pessoaFisicaService.inserir(pessoaFisica));		
+	public void testValidaSexoFemininoEIdadeAcimaDeVinteETres() {				
+		pessoaFisica.setSexo(Sexo.FEMINIMO);		
+		pessoaFisica.setIdade(24);								
+		pessoaFisica.setEstadoCivil("Casada");
+		assertEquals(3.6, pessoaFisicaService.validarDesconto(pessoaFisica, 4.500), 0.00);
+	}	
+	
+	@Test
+	public void testValidaSexoFemininoEIdadeAcimaDeTrinta() {				
+		pessoaFisica.setSexo(Sexo.FEMINIMO);		
+		pessoaFisica.setIdade(45);								
+		pessoaFisica.setEstadoCivil("Solteira");
+		pessoaFisica.setCnh("sem pontuação");
+		assertEquals(4050, pessoaFisicaService.validarDesconto(pessoaFisica, 4500), 0.00);
 	}	
 }
